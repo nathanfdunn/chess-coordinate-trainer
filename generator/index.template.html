@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="trainer.css">
+	<title></title>
+</head>
+<body>
+	<div id="config-panel">
+		<div id="mode">
+			<input type="radio" checked="checked" name="mode" id="mode-type">
+			<label for="mode-type">Type coordinates of highlighted</label>
+
+			<input type="radio" name="mode" id="mode-click">
+			<label for="mode-click">Click square with coordinates</label>
+		</div>
+		<div>
+			<input type="checkbox" name="failure" id="failure">
+			<label for="failure">New problem on failure</label>
+		</div>
+
+		<div>
+			<input type="checkbox" id="show-labels" name="show-labels" checked="checked">
+			<label for="show-labels">Show labels</label>
+		</div>
+
+		<div>
+			<input type="radio" id="player-white" name="player-color" checked="checked">
+			<label for="player-white">White's perspective</label>
+			
+			<input type="radio" id="player-black" name="player-color">
+			<label for="player-black">Black's perspective</label>
+		
+		</div>
+	</div>
+
+	<div id="indicator"></div>
+
+	<div id="click-mode-group" data-hide-input="true">
+		Click on square
+		<div id="target-coord">B5</div>
+	</div>
+	
+	<div id="input-group">
+		<label for="coord-input">Enter coordinate of highlighted square:</label>
+		<br>
+		<input type="text" name="coordinate" id="coord-input">
+	</div>
+
+#board#
+
+	<!-- <div id="feedback-pane"></div> -->
+
+</body>
+	<script src="trainer.js"></script>
+
+</html>

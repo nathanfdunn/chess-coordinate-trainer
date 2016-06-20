@@ -1,0 +1,75 @@
+
+#indicator.correct {
+	background: green;
+	transition: 0.1s;
+}
+
+#indicator.incorrect {
+	background: red;
+	transition: 0.1s;
+}
+
+#indicator {
+	width: 200px;
+	height: 50px;
+	/*background: grey;*/
+	text-align: center;
+	transition: 0.2s;
+}
+
+.board[data-hide-board="true"] {
+	display: none;
+}
+
+.axis[data-hide-axis="true"] {
+	visibility: hidden;
+}
+
+#target-coord {
+	font-size: 250%;
+}
+
+.board {
+	border-collapse: collapse;
+}
+
+.square {
+	width: 7vh;
+	height: 7vh;
+}
+
+.square.black {
+	background: #555;
+}
+
+.square.black[highlighted="true"] {
+	background: #770;
+}
+
+.square.white {
+	background: #ccc;
+}
+
+.square.white[highlighted="true"] {
+	background: #dd6;
+}
+
+#coord-input {
+	outline: 1px solid black;
+}
+
+#coord-input:focus {
+	outline: 2px solid #55f;
+}
+
+#input-group[data-hide-input="true"] {
+	display: none;
+}
+
+#click-mode-group[data-hide-input="true"] {
+	display: none;
+}
+
+.axis_righ, .axis_top {
+	visibility: hidden;
+}
