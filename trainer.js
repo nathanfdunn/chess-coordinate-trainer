@@ -102,6 +102,17 @@ document.getElementById('show-labels').onclick = function () {
 	}	
 };
 
+document.getElementById('show-pieces').onclick = function () {
+	var pieces = document.getElementsByClassName('piece');
+	for (var i=0; i<pieces.length; i++){
+		if (this.checked) {
+			pieces[i].removeAttribute('data-hide-piece');
+		} else {
+			pieces[i].setAttribute('data-hide-piece','true');
+		}
+	}	
+};
+
 document.getElementById('coord-input').onkeydown = function (event){
 	if (event.keyCode == 13){ 		// ENTER
 		var guess = this.value.trim().toUpperCase();

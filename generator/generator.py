@@ -14,14 +14,58 @@ def indToCoord(rankIndex, fileIndex, BW):
 def calcColor(rankIndex, fileIndex, BW):
 	return 'black' if (rankIndex + fileIndex) % 2 else 'white'
 
+pieceMap = {
+	'king' : '9818',
+	'queen' : '9819',
+	'rook' : '9820',
+	'bishop' : '9821',
+	'knight' : '9822',
+	'pawn' : '9823'
+}
+
+boardLayout = [
+	'♜♞♝♛♚♝♞♜', 
+	'♟♟♟♟♟♟♟♟',
+	'        ',
+	'        ',
+	'        ',
+	'        ',
+	'♟♟♟♟♟♟♟♟',
+	'♜♞♝♛♚♝♞♜', 
+]
+
+colorOffset = 6		# Black unicode chess piece codes are 
+					#  6 greater than the corresponding white piece
+
+def pieceInfo(rankIndex, fileIndex, BW):
+	if not BW:
+		rankIndex, fileIndex = 7-rankIndex, 7-fileIndex
+	pieceChar = boardLayout[rankIndex][fileIndex];
+	if pieceChar.isspace():
+		return ''
+	code = ord(pieceChar)
+	color = 'black' if rankIndex < 4 else 'white'
+	return '''
+	<div class="piece {COLOR}">
+		<div class="piece-outline">
+			&#{OUTLINE_CODE};
+		</div>
+		<div class="piece-content">
+			&#{PIECE_CODE};
+		<div>
+	</div>
+	'''.format(COLOR=color, OUTLINE_CODE=code-colorOffset, PIECE_CODE=code)
+
 def tr(rankIndex, BW):
 	out = '\t<tr>\n'
 	out += '\t\t<th class="rank axis axis_left" data-hide-axis="false">{RANK}</th>\n'.format(RANK=numToRank(rankIndex, BW))
 	for fileIndex in range(size):
-		out += '\t\t<td class="square {COLOR}" id={BW}_{COORD}></td>\n'.format(
+		out += '\t\t<td class="square {COLOR}" id={BW}_{COORD}>{PIECE}</td>\n'.format(
 			BW='BW'[BW], 
 			COLOR=calcColor(rankIndex, fileIndex, BW), 
-			COORD=indToCoord(rankIndex, fileIndex, BW))
+			COORD=indToCoord(rankIndex, fileIndex, BW),
+			PIECE=pieceInfo(rankIndex, fileIndex, BW)
+			)
 		
 	out += '\t\t<th class="rank axis axis_righ" data-hide-axis="false">{RANK}</th>\n'.format(RANK=numToRank(rankIndex, BW))
 	out += '\t</tr>\n'
