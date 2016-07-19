@@ -4,7 +4,7 @@ Inspired by the [coordinate trainer on lichess.org](https://en.lichess.org/train
 
 # Usage
 
-[Try the app on heroku](https://cryptic-sands-96890.herokuapp.com/)
+[Try the app on heroku](https://chess-coordinate-trainer.herokuapp.com/)
 
 OR
 
